@@ -1,0 +1,1206 @@
+Manager:
+    LoginPage:
+    ForgetPage:
+    HomePage:
+    AddStudent:
+    ViewStudent:
+    SearchStudent:
+    SignUp:
+    UpdatePage:
+
+
+
+
+
+
+
+
+
+
+# ******************************** Login page *********************************'''
+<LoginPage>:
+    name: "login_page"
+
+    FitImage:
+        source: 'bg.jpg'
+        
+    MDFloatLayout:
+        MDLabel:
+            markup: True
+            text: "[u][b][size=50]Student managment system[/u][b][/size]"
+            # text: "View All Records"
+            halign: "center"
+            pos_hint: {"center_x":0.5,'y': .88}
+            # md_bg_color: 'blue'
+            theme_text_color: "Custom"
+            text_color: "white"
+            # adaptive_height: True
+            size_hint: 1, .15
+            valign: "bottom"
+
+
+        
+
+        MDBoxLayout: 
+            spacing: 15
+            padding: 20
+            orientation: 'vertical'
+            # md_bg_color: 'green'
+            size_hint: 1,0.5
+            # pos_hint: {'center_x': 0.5,'y': .10}
+            pos_hint: {'center_x': 0.5,'top': 0.7}
+            MDTextField:
+                id: email
+                hint_text: "Email"
+                mode: "line"
+                icon_left: "account"
+                helper_text: "Enter email "
+                helper_text_mode: "on_focus"
+                line_color_focus: 'white'
+                line_color_normal: '#d7d9d7'
+                text_color_normal: '#d7d9d7'
+                text_color_focus: 'white'
+                hint_text_color_focus: 'white'
+                hint_text_color_normal: '#d7d9d7'
+                icon_left_color_normal: '#d7d9d7'
+                icon_left_color_focus: "white"
+                icon_left_color_normal: "#d7d9d7"
+
+            
+
+
+                
+            MDTextField:
+                id: passward
+                hint_text: "Passward"
+                # mode: "rectangle"
+                mode: "line"
+                icon_left: "lock-off"
+                helper_text: "Enter passward"
+                helper_text_mode: "on_focus"
+                password: True
+                line_color_focus: 'white'
+                line_color_normal: '#d7d9d7'
+                text_color_normal: '#d7d9d7'
+                text_color_focus: 'white'
+                hint_text_color_focus: 'white'
+                hint_text_color_normal: '#d7d9d7'
+                icon_left_color_focus: 'white'
+                icon_left_color_normal: '#d7d9d7'
+
+
+            FloatLayout:
+                
+                # for indication when passward enter passward wrord
+                MDLabel:
+                    id: incorrect
+                    text: ""
+                    font_size: "16"
+                    pos_hint: {'x': 0.1, "y": .42}
+                    theme_text_color: "Custom"
+                    text_color: "red"
+                    adaptive_size: True
+                    # md_bg_color: 'green'
+
+                # Login button 
+                MDFlatButton:
+                    text: "[b]Login[/b]"
+                    size_hint: None, None
+                    size: dp(120), dp(50)
+                    pos_hint: {"center_x": 0.5, "center_y": 0.5}  # Center align
+                    md_bg_color: "white"  # white color
+                    theme_text_color: "Custom"
+                    text_color: 'black'  # black
+                    on_release: root.get_login_values()
+
+                # forget buttong
+                MDFlatButton:
+                    text: "[b]Forget[/b]"
+                    size_hint: None, None
+                    size: dp(120), dp(50)
+                    pos_hint: {"right": 1, "center_y": 0.8}  # Right align
+                    theme_text_color: "Custom"
+                    text_color: [1, 1, 1, 1]  # نیلا متن
+                    on_release:
+                        app.root.current = "forget_page"        
+                        root.manager.transition.direction = 'left'
+            MDLabel:
+                text: "                     "
+                adaptive_height: True
+                halign: "center"
+                theme_text_color: "Custom"
+                text_color: "white"
+
+            MDLabel:
+                text: "---------- Or ----------"
+                adaptive_height: True
+                halign: "center"
+                theme_text_color: "Custom"
+                text_color: "grey"
+
+
+
+            MDFlatButton:
+                text: "Sign up"
+                pos_hint: {'center_x': 0.5}
+                theme_text_color: "Custom"
+                text_color: "white"
+                on_release: 
+                    app.root.current = "sign_up"
+                    root.manager.transition.direction = 'down'
+
+        
+    MDFloatLayout:
+        # md_bg_color: 'green'
+        size_hint: 0.6, None
+        height: 90
+        padding: 90
+        pos_hint: {'center_x': 0.5}
+        
+        MDIconButton:
+            icon: 'facebook'
+            size_hint: None,None
+            height: 60
+            width: 60
+            md_bg_color: 'grey'
+            pos_hint: {'center_x': 1.0,'center_y': 1}
+
+        MDIconButton:
+            icon: 'school'
+            size_hint: None,None
+            height: 60
+            width: 60
+            md_bg_color: 'grey'
+            pos_hint: {'center_x': 0.5,'center_y': 1}
+        
+        MDIconButton:
+            icon: 'whatsapp'
+            size_hint: None,None
+            height: 60
+            width: 60
+            md_bg_color: 'grey'
+            pos_hint: {'center_x': 0.0,'center_y': 1}
+            
+
+# ******************************** Forget page start *********************************'''
+<ForgetPage>
+    name: "forget_page"
+    FitImage:
+        source: 'bg.jpg'
+    MDFloatLayout:
+        MDLabel:
+            markup: True
+            text: "[u][b][size=50]Forget password[/u][b][/size]"
+            # text: "View All Records"
+            halign: "center"
+            pos_hint: {"center_x":0.5,'y': .88}
+            # md_bg_color: 'blue'
+            theme_text_color: "Custom"
+            text_color: "white"
+            # adaptive_height: True
+            size_hint: 1, .15
+            valign: "bottom"
+
+        MDBoxLayout:
+            pos_hint: {'center_x': 0.5,'center_y': 0.6}
+            size_hint: 1, 0.4
+            padding: 20
+            spacing: '10dp'
+            # md_bg_color: 'yellow'
+            orientation: 'vertical'
+            MDTextField:
+                id: cnic
+                hint_text: "National ID Card No"
+                pos_hint: {'center_x': 0.5,'center_y': 0.5}
+                mode: "rectangle"
+                line_color_focus: 'white'
+                line_color_normal: '#d7d9d7'
+                text_color_normal: '#d7d9d7'
+                text_color_focus: 'white'
+                hint_text_color_focus: 'white'
+                hint_text_color_normal: '#d7d9d7'
+                icon_left_color_focus: 'white'
+                icon_left_color_normal: '#d7d9d7'
+
+            MDTextField: 
+                id: mobile_no
+                hint_text: "Mobile No"
+                pos_hint: {'center_x': 0.5,'center_y': 0.5}
+                mode: "rectangle"
+                line_color_focus: 'white'
+                line_color_normal: '#d7d9d7'
+                text_color_normal: '#d7d9d7'
+                text_color_focus: 'white'
+                hint_text_color_focus: 'white'
+                hint_text_color_normal: '#d7d9d7'
+                icon_left_color_focus: 'white'
+                icon_left_color_normal: '#d7d9d7'
+            
+            MDTextField:
+                id: new_passward
+                hint_text: "New passward"
+                pos_hint: {'center_x': 0.5,'center_y': 0.5}
+                mode: "rectangle"
+                line_color_focus: 'white'
+                line_color_normal: '#d7d9d7'
+                hint_text_color_focus: 'white'
+                hint_text_color_normal: '#d7d9d7'
+                icon_left_color_focus: 'white'
+                icon_left_color_normal: '#d7d9d7'
+                text_color_normal: '#d7d9d7'
+                text_color_focus: 'white'
+                
+
+            MDTextField: 
+                id: confirm_passward
+                hint_text: "Confirm passward"
+                pos_hint: {'center_x': 0.5,'center_y': 0.5}
+                mode: "rectangle"
+                line_color_focus: 'white'
+                line_color_normal: '#d7d9d7'
+                hint_text_color_focus: 'white'
+                hint_text_color_normal: '#d7d9d7'
+                icon_left_color_focus: 'white'
+                icon_left_color_normal: '#d7d9d7'
+                text_color_normal: '#d7d9d7'
+                text_color_focus: 'white'
+
+            FloatLayout:
+                MDFlatButton:
+                    text: "[b]Change password[/b]"
+                    # size_hint: None, None
+                    # size: dp(120), dp(50)
+                    pos_hint: {"center_x": 0.5, "top":0.8}  # Center align
+                    md_bg_color: 'white'
+                    theme_text_color: "Custom"
+                    text_color: "black"  # 
+                    on_release: root.get_forget_page()
+
+                MDLabel:
+                    id: indicater
+                    text: ""
+                    size_hint: None, None
+                    size: dp(120), dp(50)
+                    pos_hint: {"left": 0.6, "top": 0.8}  # Right align
+                    theme_text_color: "Custom"
+                    text_color: "red"  # نیلا متن
+        # back button
+        MDFlatButton:
+            text: "[b]Back[/b]"
+            theme_text_color: "Custom"
+            text_color: "white"
+            on_release: 
+                app.root.current = "login_page"
+                root.manager.transition.direction = 'right'
+         
+  
+        
+
+
+
+# ******************************** Forget page End *********************************'''
+
+
+
+
+
+            
+# ***************************** SignUp Page ************************************
+<SignUp>:
+    name: "sign_up"
+    FitImage:
+        source: "bg.jpg"
+    
+    MDBoxLayout:
+        # spacing: 10
+        # md_bg_color: 'red'
+        orientation: 'vertical'
+        MDLabel:
+            markup: True
+            text: "[u][b][size=60]Create account[/u][b][/size]"
+            # text: "View All Records"
+            halign: "center"
+            # pos_hint: {"center_x":0.5,'y': .88}
+            pos_hint: {'center_x': 0.5,'center_y': 0.5} 
+            md_bg_color: 'blue'
+            theme_text_color: "Custom"
+            text_color: "white"
+            # adaptive_height: True
+            size_hint: 1, .15
+
+    # ater hader
+        MDBoxLayout:
+            orientation: 'vertical'
+            spacing: 10
+            padding: ('0dp', '0dp', '0dp', '25dp')
+
+            md_bg_clor: 'yellow'
+
+
+            BoxLayout:
+                orientation: "vertical"
+                padding: 20
+                spacing: 10
+            
+                MDTextField:
+                    id: first_name
+                    hint_text: "Enter first name"
+                    mode: "rectangle"
+                    line_color_focus: 'white'
+                    line_color_normal: '#d7d9d7'
+                    hint_text_color_focus: 'white'
+                    hint_text_color_normal: '#d7d9d7'
+                    icon_left_color_focus: 'white'
+                    icon_left_color_normal: '#d7d9d7'
+                    text_color_normal: '#d7d9d7'
+                    text_color_focus: 'white'
+
+                MDTextField:
+                    id: last_name
+                    hint_text: "last_name"
+                    mode: "rectangle"
+                    line_color_focus: 'white'
+                    line_color_normal: '#d7d9d7'
+                    hint_text_color_focus: 'white'
+                    hint_text_color_normal: '#d7d9d7'
+                    icon_left_color_focus: 'white'
+                    icon_left_color_normal: '#d7d9d7'
+                    text_color_normal: '#d7d9d7'
+                    text_color_focus: 'white'
+                    
+                MDTextField:
+                    id: mobile_no
+                    hint_text: "Mobile No"
+                    mode: "rectangle"
+                    line_color_focus: 'white'
+                    line_color_normal: '#d7d9d7'
+                    hint_text_color_focus: 'white'
+                    hint_text_color_normal: '#d7d9d7'
+                    icon_left_color_focus: 'white'
+                    icon_left_color_normal: '#d7d9d7'
+                    text_color_normal: '#d7d9d7'
+                    text_color_focus: 'white'
+                    
+
+                MDTextField:
+                    id: cnic
+                    hint_text: "National ID Card No"
+                    mode: "rectangle"
+                    line_color_focus: 'white'
+                    line_color_normal: '#d7d9d7'
+                    hint_text_color_focus: 'white'
+                    hint_text_color_normal: '#d7d9d7'
+                    icon_left_color_focus: 'white'
+                    icon_left_color_normal: '#d7d9d7'
+                    text_color_normal: '#d7d9d7'
+                    text_color_focus: 'white'
+                    
+                MDTextField:
+                    id: email
+                    hint_text: "Email"
+                    mode: "rectangle"
+                    line_color_focus: 'white'
+                    line_color_normal: '#d7d9d7'
+                    hint_text_color_focus: 'white'
+                    hint_text_color_normal: '#d7d9d7'
+                    icon_left_color_focus: 'white'
+                    icon_left_color_normal: '#d7d9d7'
+                    text_color_normal: '#d7d9d7'
+                    text_color_focus: 'white'
+                    
+                    
+                
+
+                MDTextField:
+                    id: passward
+                    hint_text: "Passward"
+                    mode: "rectangle"
+                    line_color_focus: 'white'
+                    line_color_normal: '#d7d9d7'
+                    hint_text_color_focus: 'white'
+                    hint_text_color_normal: '#d7d9d7'
+                    icon_left_color_focus: 'white'
+                    icon_left_color_normal: '#d7d9d7'
+                    password: True
+                    text_color_normal: '#d7d9d7'
+                    text_color_focus: 'white'
+
+                MDTextField:
+                    id: confirm_passward
+                    hint_text: "Confirm passward"
+                    mode: "rectangle"
+                    password: True
+                    line_color_focus: 'white'
+                    line_color_normal: '#d7d9d7'
+                    hint_text_color_focus: 'white'
+                    hint_text_color_normal: '#d7d9d7'
+                    icon_left_color_focus: 'white'
+                    icon_left_color_normal: '#d7d9d7'
+                    text_color_normal: '#d7d9d7'
+                    text_color_focus: 'white'
+                    
+    
+                
+                MDLabel:
+                    id: indicate_in_signup_page
+                    text: "       " # set text here from .py file in sign_up page
+                    theme_text_color: "Custom"
+                    text_color: "red"
+                    adaptive_height: True
+                    font_size: 12
+
+        
+            
+            MDFlatButton:
+                text: 'Create account'
+                md_bg_color: "white"
+                theme_text_color: "Custom"
+                text_color: "black"
+                bold: True
+                pos_hint: {'center_x': 0.5}
+                on_release: root.sign_up_page_values()
+            
+            # MDLabel:
+            #     text: ""
+            #     md_bg_color: 'black'
+            #     size_hint: None,None
+            #     height: 80
+
+            
+            
+
+        # back button
+        MDFlatButton:
+            text: "[b]Back[/b]"
+            theme_text_color: "Custom"
+            text_color: "white"
+            on_release: 
+                app.root.current = "login_page"
+                root.manager.transition.direction = 'up'
+    
+
+            
+
+
+
+
+# ******************************** Home page *********************************'''
+<HomePage>:
+    name: "home_page"
+    FitImage:
+        source: 'bg.jpg'
+    MDBoxLayout:
+        # md_bg_color: 'red'
+        orientation: 'vertical'
+        MDLabel:
+            markup: True
+            text: "[u][b][size=60]Home page[/u][b][/size]"
+            # text: "View All Records"
+            halign: "center"
+            pos_hint: {"center_x":0.5,'y': .88}
+            # md_bg_color: 'blue'
+            theme_text_color: "Custom"
+            text_color: "white"
+            # adaptive_height: True
+            size_hint: 1, .15
+
+        MDBoxLayout:
+            orientation: 'vertical'
+            padding: ('0dp', '0dp', '0dp', '200dp')
+            spacing: '10dp'
+
+            MDFlatButton:
+                markup: True
+                text: "[b][size=30]Add record[/b][/size]"
+                md_bg_color: "grey"
+                theme_text_color: "Custom"
+                text_color: "white"
+                size_hint: 0.7, None
+                pos_hint: {'center_x': 0.5}
+                on_release: 
+                    app.root.current = "add_record"
+                    root.manager.transition.direction = 'right'
+
+            MDFlatButton:
+                markup: True
+                text: "[b][size=30]View record[/b][/size]"
+                md_bg_color: "grey"
+                pos_hint: {'center_x': 0.5}
+                theme_text_color: "Custom"
+                text_color: "white"
+                size_hint: 0.7, None
+                on_release: 
+                    app.root.current = "view_record"
+                    root.manager.transition.direction = 'right'
+            
+            MDFlatButton:
+                markup: True
+                text: "[b][size=30]Search record[/b][/size]"
+                md_bg_color: "grey"
+                theme_text_color: "Custom"
+                text_color: "white"
+                size_hint: 0.7, None
+                pos_hint: {'center_x': 0.5}
+                on_release:
+                    app.root.current = "search_student"
+                    root.manager.transition.direction = 'right'
+
+            MDFlatButton:
+                markup: True
+                text: "[b][size=30]Update record[/b][/size]"
+                md_bg_color: "grey"
+                theme_text_color: "Custom"
+                text_color: "white"
+                size_hint: 0.7, None
+                pos_hint: {'center_x': 0.5}
+                on_release:
+                    app.root.current = "update_page"
+                    # root.manager.transition.direction ="right"
+
+
+
+           
+
+            
+            
+
+
+# ********************** Add student record  screen**********************
+<AddStudent>
+    name: "add_record"
+    FitImage:
+        source: 'bg.jpg'
+
+    MDLabel:  #that lable show indicate when condition false  in add_student_class or any input field empty it show indicate
+        id: error_indicate
+        adaptive_size: True
+        text: ""
+        theme_text_color: "Custom"
+        text_color: "red"
+        pos_hint: {'center_x': 0.2,'y': .20}
+        font_size: 15
+
+
+    MDBoxLayout:
+        orientation: 'vertical'    
+        MDLabel:
+            markup: True
+            text: "[u][b][size=60]Add New Student[/u][b][/size]"
+            # text: "View All Records"
+            halign: "center"
+            pos_hint: {"center_x":0.5,'y': .88}
+            md_bg_color: 'blue'
+            theme_text_color: "Custom"
+            text_color: "white"
+            # adaptive_height: True
+            size_hint: 1, .15
+        MDBoxLayout:
+            # md_bg_color: 'green'
+            orientation: 'vertical'
+            spacing: 10
+            # padding: 30
+            
+            MDBoxLayout:
+                orientation: 'vertical'
+                adaptive_height: True
+                # md_bg_color: 'yellow'
+                spacing: 10
+                padding: 20
+
+
+                # ************* imput keyword ***********
+
+                MDTextField:
+                    id: first_name
+                    hint_text: "Enter first name"
+                    mode: "rectangle"
+                    line_color_focus: 'white'
+                    line_color_normal: '#d7d9d7'
+                    hint_text_color_focus: 'white'
+                    hint_text_color_normal: '#d7d9d7'
+                    icon_left_color_focus: 'white'
+                    icon_left_color_normal: '#d7d9d7'
+                    text_color_normal: "#d7d9d7"
+                    text_color_focus: "white"
+
+                MDTextField:
+                    id: last_name
+                    hint_text: "Enter last name"
+                    mode: "rectangle"
+                    line_color_focus: 'white'
+                    line_color_normal: '#d7d9d7'
+                    hint_text_color_focus: 'white'
+                    hint_text_color_normal: '#d7d9d7'
+                    icon_left_color_focus: 'white'
+                    icon_left_color_normal: '#d7d9d7'
+                    text_color_normal: "#d7d9d7"
+                    text_color_focus: "white"
+                
+                MDTextField:
+                    id: f_name
+                    hint_text: "F.Name"
+                    mode: "rectangle"
+                    line_color_focus: 'white'
+                    line_color_normal: '#d7d9d7'
+                    hint_text_color_focus: 'white'
+                    hint_text_color_normal: '#d7d9d7'
+                    icon_left_color_focus: 'white'
+                    icon_left_color_normal: '#d7d9d7'
+                    text_color_normal: "#d7d9d7"
+                    text_color_focus: "white"
+                
+                MDTextField:
+                    id: cnic
+                    hint_text: "National ID Card No"
+                    mode: "rectangle"
+                    line_color_focus: 'white'
+                    line_color_normal: '#d7d9d7'
+                    hint_text_color_focus: 'white'
+                    hint_text_color_normal: '#d7d9d7'
+                    icon_left_color_focus: 'white'
+                    icon_left_color_normal: '#d7d9d7'
+                    text_color_normal: "#d7d9d7"
+                    text_color_focus: "white"
+
+                MDTextField:
+                    id: mobile_no
+                    hint_text: "Mobile No"
+                    mode: "rectangle"
+                    line_color_focus: 'white'
+                    line_color_normal: '#d7d9d7'
+                    hint_text_color_focus: 'white'
+                    hint_text_color_normal: '#d7d9d7'
+                    icon_left_color_focus: 'white'
+                    icon_left_color_normal: '#d7d9d7'
+                    text_color_normal: "#d7d9d7"
+                    text_color_focus: "white"
+
+                MDTextField:
+                    id: class_name
+                    hint_text: "Class"
+                    mode: "rectangle"
+                    line_color_focus: 'white'
+                    line_color_normal: '#d7d9d7'
+                    hint_text_color_focus: 'white'
+                    hint_text_color_normal: '#d7d9d7'
+                    icon_left_color_focus: 'white'
+                    icon_left_color_normal: '#d7d9d7'
+                    text_color_normal: "#d7d9d7"
+                    text_color_focus: "white"
+
+            # Submit button
+            MDFlatButton:
+                markup: True
+                text: "[b][size=20]Submit[/b][/size]"
+                md_bg_color: "white"
+                theme_text_color: "Custom"
+                text_color: 'black'
+                pos_hint: {'center_x': 0.5,'center_y': 0.5}
+                # size_hint: 0.1,None
+                # width: 120
+                on_release: root.get_text_from_add_record()
+
+            MDLabel: # for empty sapace
+                text: ""
+                
+
+
+        # back button
+        MDFlatButton:
+            text: "[b]Back[/b]"
+            theme_text_color: "Custom"
+            text_color: 'white'
+            on_release:
+                app.root.current = "home_page"
+                root.manager.transition.direction = 'left'
+
+
+
+
+<ViewStudent>:
+    name: "view_record"
+    FitImage:
+        source: "whitebg.jpg"
+    MDBoxLayout:
+        orientation: "vertical"
+        padding: ('0dp', '0dp', '0dp', '10dp')
+        spacing: 10
+
+        MDLabel:
+            markup: True
+            text: "[u][b][size=60]View All Students[/u][b][/size]"
+            # text: "View All Records"
+            halign: "center"
+            pos_hint: {"center_x":0.5,'y': .88}
+            md_bg_color: 'blue'
+            theme_text_color: "Custom"
+            text_color: "white"
+            # adaptive_height: True
+            size_hint: 1, .15
+
+
+
+        MDScrollView:
+            pos_hint: {'center_x': 0.5,'center_y': 0.5}
+            size_hint: .99, 0.8
+            MDList:
+                id: mylist
+                
+        MDFlatButton:
+            text: "[b]Back[/b]"
+            on_release:
+                app.root.current = "home_page"
+                root.manager.transition.direction = 'left'
+            
+            
+                
+# search class page code
+<SearchStudent>  
+    name: "search_student"
+    FitImage:
+        source: 'bg.jpg'  
+
+    MDBoxLayout:
+        orientation: "vertical"
+
+        MDLabel:
+            markup: True
+            text: "[u][b][size=60]Search Records[/u][b][/size]"
+            # text: "View All Records"
+            halign: "center"
+            pos_hint: {"center_x":0.5,'y': .88}
+            md_bg_color: 'blue'
+            theme_text_color: "Custom"
+            text_color: "white"
+            size_hint: 1, .15
+        
+        
+        MDBoxLayout:
+            adaptive_height: True
+            padding: ('20dp', '20dp', '20dp', '40dp')
+
+            MDTextField:
+                id: search_student
+                hint_text: 'Search student by Roll No'
+                mode: "rectangle"
+                line_color_focus: 'white'
+                line_color_normal: '#d7d9d7'
+                hint_text_color_focus: 'white'
+                hint_text_color_normal: '#d7d9d7'
+                icon_left_color_focus: 'white'
+                icon_left_color_normal: '#d7d9d7'
+                text_color_normal: "#d7d9d7"
+                text_color_focus: "white"
+                icon_left_color_focus: 'white'
+                icon_left_color_normal: '#d7d9d7'
+                on_text_validate: root.searching_row()
+                
+
+
+
+            
+        
+        MDBoxLayout: 
+            # rows: 6
+            orientation: 'vertical'
+            padding: 20
+            spacing: '20dp'
+
+            
+
+                    
+
+            MDLabel:
+                id: id_id
+                text: ""
+                # adaptive_height: True
+                # size_hint: None,None
+                # height: 40
+                # width: 320
+                md_bg_color: "d4dada"
+                font_size: 25
+                theme_text_color: "Custom"
+                text_color: "black"
+                bold: True
+
+
+
+            MDLabel:
+                id: full_name
+                text: ""
+                # adaptive_height: True
+                # size_hint: None,None
+                # height: 40
+                # width: 320
+                md_bg_color: "d4dada"
+                theme_text_color: "Custom"
+                text_color: "black"
+                bold: True
+                font_size: 25
+            MDLabel:
+                id: f_name
+                text: ""
+                # adaptive_height: True
+                # size_hint: None,None
+                # height: 40
+                # width: 320
+                md_bg_color: "d4dada"
+                theme_text_color: "Custom"
+                text_color: "black"
+                bold: True
+                font_size: 25
+        
+            MDLabel:
+                id: cnic
+                text: ""
+                # adaptive_height: True
+                # size_hint: None,None
+                # height: 40
+                # width: 320
+                md_bg_color: "d4dada"
+                theme_text_color: "Custom"
+                text_color: "black"
+                bold: True
+                font_size: 25
+        
+            MDLabel:
+                id: mobile_no
+                text: ""
+                # adaptive_height: True
+                # size_hint: None,None
+                # height: 40
+                # width: 320
+                md_bg_color: "d4dada"
+                font_size: 25
+                theme_text_color: "Custom"
+                text_color: "black"
+                bold: True
+
+
+            MDLabel:
+                id: class_name
+                text: ""
+                # adaptive_height: True
+                # size_hint: None,None
+                # height: 40
+                # width: 320
+                md_bg_color: "d4dada"
+                theme_text_color: "Custom"
+                text_color: "black"
+                bold: True
+                font_size: 25
+            
+        MDBoxLayout:
+            padding: ('50dp', '0dp', '0dp', '0dp')
+            spacing: 30
+            # md_bg_color: 'yellow'
+            adaptive_height: True
+            
+            MDFlatButton:
+                text: "delete"
+                bold: True
+                md_bg_color: 'white'
+                theme_text_color: 'Custom'
+                text_color: "black"
+                # pos_hint: {'center_x': 0.5,'center_y': 0.5}
+                pos_hint: {'center_x': 0.5,'center_y': 0.6}
+                on_release: root.logic_for_delete_student()
+                # on_release: app.show_dailog()
+                    # """ i also create one function in app window to dailog for choose if your want to delete,
+                    #     some logical error i skip it, becuse i not able so sol it,
+                    #     logical error is that, when open dailog and press yes, than i 
+                        # logic_for_delete_student() here is a condition if condition make for delete, then 
+                        # record deleted successfuly, and also anothor function call from condition body, 
+                        # clear_label() it for clearign label, so the clear_label not working, when i call it 
+                        # from anothor function it successfuly working(clear labels from text) but here is not 
+                        # workign  """
+
+
+            MDLabel:
+                id: record_not_found_indicate
+                text: "                      "
+                theme_text_color: "Custom"
+                text_color: "red"
+                adaptive_size: True
+                pos_hint: {'center_x': 0.5,'center_y': 1.1}
+
+            
+        
+        MDFlatButton:
+            text: "[b]Back[/b]"
+            theme_text_color: "Custom"
+            text_color: "white"
+
+            on_release:
+                app.root.current = "home_page"
+                root.manager.transition.direction = 'left'
+
+    # that is the search icno button in position on center right on MDTextField of search bar
+    # for aligning i need to write code here of it button
+    MDFlatButton:
+        text: "[b][u]Search now[/u][/b]"
+        pos_hint: {'x': .70,'center_y': 0.76}
+        theme_text_color: "Custom"
+        text_color: 'white'
+        on_release: 
+            root.searching_row()
+            
+
+        
+
+
+
+
+# *************************************** Update page start **********************************
+<UpdatePage>:
+    name: "update_page"
+    FitImage:
+        source: 'bg.jpg'
+    
+    MDFloatLayout:
+    
+        MDLabel:  #that lable show indicate when condition false  in add_student_class or any input field empty it show indicate
+            id: error_indicate
+            adaptive_size: True
+            text: ""
+            theme_text_color: "Custom"
+            text_color: "red"
+            pos_hint: {'center_x': 0.2,'y': .20}
+            font_size: 15
+
+
+        MDBoxLayout:
+            orientation: 'vertical'    
+            MDLabel:
+                markup: True
+                text: "[u][b][size=50]Change student record[/u][b][/size]"
+                # text: "View All Records"
+                halign: "center"
+                pos_hint: {"center_x":0.5,'y': .88}
+                md_bg_color: 'blue'
+                theme_text_color: "Custom"
+                text_color: "white"
+                adaptive_height: True
+                size_hint: 1, .15
+            MDBoxLayout:
+                # md_bg_color: 'green'
+                orientation: 'vertical'
+                spacing: 10
+                # padding: 30
+                
+                MDBoxLayout:
+                    orientation: 'vertical'
+                    adaptive_height: True
+                    # md_bg_color: 'yellow'
+                    spacing: 10
+                    padding: 20
+
+
+                    # ************* imput keyword ***********
+                    # for make input field width one bottom to search
+                    MDBoxLayout:
+                        spacing: 40
+                        MDTextField:
+                            id: id
+                            hint_text: "Enter id to search"
+                            mode: "rectangle"
+                            size_hint: None, None
+                            height: 120
+                            width: 360
+                            line_color_focus: 'white'
+                            line_color_normal: '#d7d9d7'
+                            hint_text_color_focus: 'white'
+                            hint_text_color_normal: '#d7d9d7'
+                            icon_left_color_focus: 'white'
+                            icon_left_color_normal: '#d7d9d7'
+                            text_color_normal: "#d7d9d7"
+                            text_color_focus: "white"
+                            on_text_validate: root.get_record()
+
+                        
+                        MDFlatButton:
+                            markup: True
+                            text: "[b][size=18][u]Search to update[/b][/size][u]"
+                            md_bg_color: "white"
+                            theme_text_color: "Custom"
+                            text_color: "black"
+                            on_release: root.get_record()
+
+          
+
+                    MDTextField:
+                        id: first_name
+                        hint_text: "Enter first name"
+                        mode: "rectangle"
+                        line_color_focus: 'white'
+                        line_color_normal: '#d7d9d7'
+                        hint_text_color_focus: 'white'
+                        hint_text_color_normal: '#d7d9d7'
+                        icon_left_color_focus: 'white'
+                        icon_left_color_normal: '#d7d9d7'
+                        text_color_normal: "#d7d9d7"
+                        text_color_focus: "white"
+
+                    MDTextField:
+                        id: last_name
+                        hint_text: "Enter last name"
+                        mode: "rectangle"
+                        line_color_focus: 'white'
+                        line_color_normal: '#d7d9d7'
+                        hint_text_color_focus: 'white'
+                        hint_text_color_normal: '#d7d9d7'
+                        icon_left_color_focus: 'white'
+                        icon_left_color_normal: '#d7d9d7'
+                        text_color_normal: "#d7d9d7"
+                        text_color_focus: "white"
+
+                    MDTextField:
+                        id: f_name
+                        hint_text: "F.Name"
+                        mode: "rectangle"
+                        line_color_focus: 'white'
+                        line_color_normal: '#d7d9d7'
+                        hint_text_color_focus: 'white'
+                        hint_text_color_normal: '#d7d9d7'
+                        icon_left_color_focus: 'white'
+                        icon_left_color_normal: '#d7d9d7'
+                        text_color_normal: "#d7d9d7"
+                        text_color_focus: "white"
+
+                    MDTextField:
+                        id: cnic
+                        hint_text: "National ID Card No"
+                        mode: "rectangle"
+                        line_color_focus: 'white'
+                        line_color_normal: '#d7d9d7'
+                        hint_text_color_focus: 'white'
+                        hint_text_color_normal: '#d7d9d7'
+                        icon_left_color_focus: 'white'
+                        icon_left_color_normal: '#d7d9d7'
+                        text_color_normal: "#d7d9d7"
+                        text_color_focus: "white"
+
+                    MDTextField:
+                        id: mobile_no
+                        hint_text: "Mobile No"
+                        mode: "rectangle"
+                        line_color_focus: 'white'
+                        line_color_normal: '#d7d9d7'
+                        hint_text_color_focus: 'white'
+                        hint_text_color_normal: '#d7d9d7'
+                        icon_left_color_focus: 'white'
+                        icon_left_color_normal: '#d7d9d7'
+                        text_color_normal: "#d7d9d7"
+                        text_color_focus: "white"
+
+                    MDTextField:
+                        id: class_name
+                        hint_text: "Class"
+                        mode: "rectangle"
+                        line_color_focus: 'white'
+                        line_color_normal: '#d7d9d7'
+                        hint_text_color_focus: 'white'
+                        hint_text_color_normal: '#d7d9d7'
+                        icon_left_color_focus: 'white'
+                        icon_left_color_normal: '#d7d9d7'
+                        text_color_normal: "#d7d9d7"
+                        text_color_focus: "white"
+
+                # Submit button
+                MDFlatButton:
+                    markup: True
+                    text: "[b][size=20]Submit[/b][/size]"
+                    md_bg_color: "white"
+                    theme_text_color: "Custom"
+                    text_color: 'black'
+                    pos_hint: {'center_x': 0.5,'center_y': 0.5}
+                    # size_hint: 0.1,None
+                    # width: 120
+                    on_release: root.update_record()
+
+                MDLabel: # for empty sapace
+                    text: ""
+                    size_hint: None, None
+                    height: 30
+                    md_bg_clor: "red"
+                    
+
+
+            # back button
+            MDFlatButton:
+                text: "[b]Back[/b]"
+                theme_text_color: "Custom"
+                text_color: "white"
+                on_release:
+                    app.root.current = "home_page"
+                    root.manager.transition.direction = 'left'
+                    
+
+
+
+<DialogContent>:
+    orientation: 'vertical'
+    size_hint: 1, None
+    height:    80
+
+    MDLabel:
+        text: "Are your sure you want to delete it record?"
+        font_size: 20
+       
+    
+    MDBoxLayout:
+        pos_hint: {'x': .75,'y': .10}
+        orientation: 'horizontal'
+        spacing: 20
+        md_bg_clor: 'yellow'
+        MDRaisedButton:
+            text: "No"
+            on_release: app.close_dialog()
+        
+        MDRaisedButton:
+            text: "Yes"
+            md_bg_clor: 'blue'
+            theme_text_color: "Custom"
+            text_color: "white"
+            bold: True
+            on_release: app.yes_delete_record(), app.close_dialog()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    # orientation: 'vertical'
+    # spacing: '10dp'
+    # size_hint: 1,None
+    # height: dp(130)
+
+    
+    # MDBoxLayout:
+    #     orientation: 'horizontal'
+    #     spacing: 10
+        
+
+    #     MDRaisedButton:
+    #         text: "save"
+    #         theme_text_color: "Custom"
+    #         text_color: "black"
+    #         md_bg_color: 1.040,0.643,0.258
+    #         on_release: (app.add_task(task_text, date_text.text), app.on_close())
+            
+    #     MDRaisedButton:
+    #         text: "cancel"
+    #         md_bg_color: "#f2eee9"
+    #         theme_text_color: "Custom"
+    #         text_color: "black"
+    #         on_release: app.on_close()
+
+
